@@ -1,8 +1,10 @@
 import express from "express";
 import { PrismaClient } from "@repo/db/client";
+import cors from "cors";
 const app = express();
 const prisma = new PrismaClient();
 app.use(express.json());
+app.use(cors());
 
 app.post("/", async (req, res) => {
   const { name, email, mobileNumber, dateOfBirth } = req.body;
